@@ -534,153 +534,121 @@ body {
 }
 
 /* ==========================================================================
-   BODY CONTENT & BENEFITS
+   PRIZE FEATURE CARD & URGENCY BANNER
    ========================================================================== */
 
-.content-body {
-  padding: 16px;
+.prize-section {
+  padding: 14px 16px 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* VIP Community Heading */
-.community-heading-wrap {
-  text-align: center;
-  padding: 8px 6px 2px;
+.prize-card {
+  background: #0d0d10;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.community-main-title {
-  font-size: clamp(20px, 5.5vw, 24px);
-  font-weight: 800;
-  line-height: 1.34;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+.prize-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 38, 51, 0.4);
 }
 
-.community-red-highlight {
-  color: #FF2633 !important;
-  font-weight: 900;
-  display: inline;
-  text-shadow: 0 0 20px rgba(255, 38, 51, 0.75), 0 0 35px rgba(255, 38, 51, 0.35);
-  letter-spacing: -0.01em;
-}
-
-/* Jorge iPhone Photo (Zoomed in on Jorge & iPhone) */
-.photo-feature-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 6px 0 12px;
+.prize-image-wrap {
+  position: relative;
   width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #000;
 }
 
-.photo-feature-card {
-  width: 220px !important;
-  max-width: 220px !important;
-  height: 280px !important;
-  border-radius: 22px !important;
-  overflow: hidden !important;
-  position: relative !important;
-  background: #08080a;
-  border: 1.5px solid rgba(var(--campaign-shadow-rgb), 0.5) !important;
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.85), 0 0 24px rgba(var(--campaign-shadow-rgb), 0.3) !important;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.photo-feature-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.95), 0 0 32px rgba(var(--campaign-shadow-rgb), 0.45) !important;
-}
-
-.photo-feature-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center 60% !important;
-  transform: scale(1.4) !important;
-  transform-origin: center 58% !important;
-  display: block !important;
-}
-
-/* Benefits Section & Cards */
-.benefits-section-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.benefits-header {
-  padding: 0 4px;
-}
-
-.benefits-title {
-  font-size: 15.5px;
+.prize-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 5;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(15, 15, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  font-size: 10.5px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.benefits-container {
+.prize-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.prize-card-info {
+  padding: 18px 18px 20px;
+}
+
+.prize-title {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 4px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 6px;
 }
 
-.benefit-item {
+.prize-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* Urgency Alert Banner */
+.urgency-banner {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 16px 18px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(var(--campaign-shadow-rgb), 0.09) 0%, rgba(255, 255, 255, 0.025) 100%);
-  border: 1px solid rgba(var(--campaign-shadow-rgb), 0.32);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  border-radius: 20px;
+  background: rgba(36, 12, 14, 0.75);
+  border: 1px solid rgba(255, 38, 51, 0.35);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
 }
 
-.benefit-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(var(--campaign-shadow-rgb), 0.55);
-}
-
-.benefit-icon-badge {
+.urgency-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 38, 51, 0.18);
+  border: 1px solid rgba(255, 38, 51, 0.4);
   flex-shrink: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.4) 100%);
-  border: 1px solid rgba(var(--campaign-shadow-rgb), 0.4);
-  box-shadow: 0 4px 14px rgba(var(--campaign-shadow-rgb), 0.2);
 }
 
-.benefit-emoji {
-  font-size: 24px;
-  line-height: 1;
+.urgency-icon {
+  width: 19px;
+  height: 19px;
+  color: #FF3B47;
+  stroke-width: 2.2;
 }
 
-.benefit-content {
-  flex: 1;
-}
-
-.benefit-text {
-  font-size: 14.5px;
-  font-weight: 600;
+.urgency-text {
+  font-size: 13.5px;
+  font-weight: 500;
   line-height: 1.45;
-  color: hsl(var(--text-soft));
-}
-
-.benefit-tag-highlight {
-  color: #FF2E38;
-  font-weight: 900;
-  text-shadow: 0 0 14px rgba(255, 46, 56, 0.5);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ==========================================================================

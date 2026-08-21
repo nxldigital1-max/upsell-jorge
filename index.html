@@ -18,7 +18,7 @@
   <!-- Lucide Icons (CDN) -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="style.css?v=3.5" />
+  <link rel="stylesheet" href="style.css?v=3.6" />
 </head>
 
 <body>
@@ -26,52 +26,54 @@
     <div class="container">
 
       <!-- Video / Hero Section -->
-      <section class="hero-media-card">
-        <video 
-          id="heroVideo"
-          src="assets/compressed-JJMwAyiy.mp4"
-          playsinline 
-          autoplay 
-          loop 
-          muted 
-          class="hero-video"
-        ></video>
+      <section class="hero-media-card" id="heroMediaCard">
+        <div class="video-container-wrap">
+          <video 
+            id="heroVideo"
+            src="assets/compressed-JJMwAyiy.mp4"
+            playsinline 
+            autoplay 
+            loop 
+            muted 
+            class="hero-video"
+          ></video>
 
-        <!-- Video Gradient Overlays -->
-        <div class="video-overlay"></div>
+          <!-- Video Gradient Overlays -->
+          <div class="video-overlay"></div>
 
-        <!-- Top Floating Header -->
-        <div class="top-bar">
-          <div class="brand-badge">
-            <img 
-              src="assets/logo.jpg" 
-              alt="Jorge Filho Multimarcas" 
-              class="brand-logo-img" 
-              style="mix-blend-mode: screen; background: transparent; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.9)) contrast(115%) brightness(110%);"
-            />
+          <!-- Top Floating Header -->
+          <div class="top-bar">
+            <div class="brand-badge">
+              <img 
+                src="assets/logo.jpg" 
+                alt="Jorge Filho Multimarcas" 
+                class="brand-logo-img" 
+                style="mix-blend-mode: screen; background: transparent; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.9)) contrast(115%) brightness(110%);"
+              />
+            </div>
+
+            <div class="timer-badge" aria-label="Oferta termina em">
+              <span class="timer-dot"></span>
+              <span id="countdownTimer">05:00</span>
+            </div>
           </div>
 
-          <div class="timer-badge" aria-label="Oferta termina em">
-            <span class="timer-dot"></span>
-            <span id="countdownTimer">05:00</span>
+          <!-- Live Badge -->
+          <div class="live-pill">
+            <span class="live-dot"></span>
+            <span class="live-text">AO VIVO</span>
           </div>
-        </div>
 
-        <!-- Live Badge -->
-        <div class="live-pill">
-          <span class="live-dot"></span>
-          <span class="live-text">AO VIVO</span>
-        </div>
-
-        <!-- Sound / Play Control Overlay -->
-        <div class="sound-toggle-wrap" id="soundToggleBtn">
-          <button type="button" aria-label="Tocar com som" class="sound-btn">
-            <span class="pulse-ring-1"></span>
-            <span class="pulse-ring-2"></span>
-            <span class="play-triangle" id="soundIcon"></span>
-          </button>
-          <div class="sound-pill">
-            <span id="soundPillText">🔊 Toca pra ouvir</span>
+          <!-- Sound / Play Control Overlay -->
+          <div class="sound-toggle-wrap" id="soundToggleBtn">
+            <button type="button" aria-label="Tocar com som" class="sound-btn">
+              <span class="pulse-ring-1"></span>
+              <span class="pulse-ring-2"></span>
+              <span class="play-triangle" id="soundIcon"></span>
+            </button>
+            <div class="sound-pill">
+              <span id="soundPillText">🔊 Toca pra ouvir</span>
+            </div>
           </div>
         </div>
 

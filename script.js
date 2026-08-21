@@ -33,33 +33,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const soundToggleBtn = document.getElementById('soundToggleBtn');
   const soundPillText = document.getElementById('soundPillText');
   const soundIcon = document.getElementById('soundIcon');
+  const heroMediaCard = document.getElementById('heroMediaCard');
 
   if (soundToggleBtn && video) {
-    soundToggleBtn.addEventListener('click', () => {
-      if (video.muted) {
-        video.muted = false;
-        video.currentTime = 0;
-        video.play().catch(e => console.log('Audio playback permission:', e));
-        if (soundPillText) soundPillText.textContent = '🔊 Som ativado';
-        if (soundIcon) soundIcon.classList.add('playing');
-        
-        // Softly fade out sound button after activation for clean viewing
-        setTimeout(() => {
-          soundToggleBtn.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-          soundToggleBtn.style.opacity = '0.4';
-        }, 1500);
-      } else {
-        video.muted = true;
-        if (soundPillText) soundPillText.textContent = '🔊 Toca pra ouvir';
-        if (soundIcon) soundIcon.classList.remove('playing');
-        soundToggleBtn.style.opacity = '1';
+    const activateSound = () => {
+      video.muted = false;
+      video.currentTime = 0;
+      video.play().catch(e => console.log('Audio playback permission:', e));
+      if (soundPillText) soundPillText.textContent = '🔊 Som ativado';
+      if (soundIcon) soundIcon.classList.add('playing');
+      if (heroMediaCard) {
+        heroMediaCard.classList.add('sound-active');
       }
+    };
+
+    soundToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      activateSound();
     });
 
-    // Hover or touch on faded button brings it back
-    soundToggleBtn.addEventListener('mouseenter', () => {
-      soundToggleBtn.style.opacity = '1';
-    });
+    const videoWrap = document.querySelector('.video-container-wrap');
+    if (videoWrap) {
+      videoWrap.addEventListener('click', () => {
+        if (heroMediaCard && !heroMediaCard.classList.contains('sound-active')) {
+          activateSound();
+        }
+      });
+    }
   }
 
   // Auto-remove black background from logo for 100% clean transparent rendering

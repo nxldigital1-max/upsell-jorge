@@ -359,6 +359,67 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Floating Pause/Play State Overlay */
+.video-state-overlay {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  z-index: 28;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.video-state-overlay.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-state-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* Pause icon: 2 vertical bars */
+.video-state-icon.paused {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 17px;
+  height: 20px;
+}
+
+.video-state-icon.paused::before,
+.video-state-icon.paused::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+/* Play icon: triangle */
+.video-state-icon.playing {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 3px;
+}
+
 /* Hero Content on Video */
 .hero-content {
   position: relative;

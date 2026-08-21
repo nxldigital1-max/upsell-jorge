@@ -28,38 +28,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const timerInterval = setInterval(updateTimer, 1000);
 
-  // Video Sound / Unmute Control
+  // Video Sound & Play/Pause Control
   const video = document.getElementById('heroVideo');
   const soundToggleBtn = document.getElementById('soundToggleBtn');
-  const soundPillText = document.getElementById('soundPillText');
-  const soundIcon = document.getElementById('soundIcon');
   const heroMediaCard = document.getElementById('heroMediaCard');
+  const videoWrap = document.querySelector('.video-container-wrap');
+  const videoStateOverlay = document.getElementById('videoStateOverlay');
+  const videoStateIcon = document.getElementById('videoStateIcon');
 
-  if (soundToggleBtn && video) {
-    const activateSound = () => {
+  let hasActivatedSound = false;
+  let overlayTimeout;
+
+  function showStateIndicator(isPlaying) {
+    if (!videoStateOverlay || !videoStateIcon) return;
+    clearTimeout(overlayTimeout);
+
+    if (isPlaying) {
+      videoStateIcon.className = 'video-state-icon playing';
+      videoStateOverlay.classList.add('visible');
+      overlayTimeout = setTimeout(() => {
+        videoStateOverlay.classList.remove('visible');
+      }, 700);
+    } else {
+      videoStateIcon.className = 'video-state-icon paused';
+      videoStateOverlay.classList.add('visible');
+    }
+  }
+
+  function handleVideoActivation() {
+    if (!hasActivatedSound) {
+      hasActivatedSound = true;
       video.muted = false;
-      video.currentTime = 0;
+      video.currentTime = 0; // Only reset to 0:00 on the initial activation
       video.play().catch(e => console.log('Audio playback permission:', e));
-      if (soundPillText) soundPillText.textContent = '🔊 Som ativado';
-      if (soundIcon) soundIcon.classList.add('playing');
       if (heroMediaCard) {
         heroMediaCard.classList.add('sound-active');
       }
-    };
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else {
+      // Toggle play / pause WITHOUT resetting currentTime
+      if (video.paused) {
+        video.play().catch(e => console.log('Video play error:', e));
+        showStateIndicator(true);
+      } else {
+        video.pause();
+        showStateIndicator(false);
+      }
+    }
+  }
 
+  if (soundToggleBtn && video) {
     soundToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      activateSound();
+      handleVideoActivation();
     });
+  }
 
-    const videoWrap = document.querySelector('.video-container-wrap');
-    if (videoWrap) {
-      videoWrap.addEventListener('click', () => {
-        if (heroMediaCard && !heroMediaCard.classList.contains('sound-active')) {
-          activateSound();
-        }
-      });
-    }
+  if (videoWrap && video) {
+    videoWrap.addEventListener('click', () => {
+      handleVideoActivation();
+    });
   }
 
   // Auto-remove black background from logo for 100% clean transparent rendering

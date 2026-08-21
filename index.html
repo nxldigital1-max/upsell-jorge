@@ -18,7 +18,7 @@
   <!-- Lucide Icons (CDN) -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="style.css?v=3.6" />
+  <link rel="stylesheet" href="style.css?v=3.7" />
 </head>
 
 <body>
@@ -73,6 +73,13 @@
             </button>
             <div class="sound-pill">
               <span id="soundPillText">🔊 Toca pra ouvir</span>
+            </div>
+          </div>
+
+          <!-- Pause/Resume State Indicator Overlay -->
+          <div class="video-state-overlay" id="videoStateOverlay" aria-hidden="true">
+            <div class="video-state-circle">
+              <span class="video-state-icon" id="videoStateIcon"></span>
             </div>
           </div>
         </div>

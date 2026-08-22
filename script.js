@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (heroMediaCard) {
         heroMediaCard.classList.add('sound-active');
       }
-      window.scrollTo({ top: 0, behavior: 'instant' });
     } else {
       // Toggle play / pause WITHOUT resetting currentTime
       if (video.paused) {

@@ -70,16 +70,14 @@ body {
 .video-container-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 32vh;
-  min-height: 230px;
-  border-radius: 24px;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: #000000;
   cursor: pointer;
-  transition: aspect-ratio 0.5s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transition: aspect-ratio 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .hero-video {
@@ -89,7 +87,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center 25%;
 }
 
 /* Video Overlay */
@@ -102,11 +100,9 @@ body {
   transition: opacity 0.5s ease;
 }
 
-/* Sound Active State -> Expande o vídeo revelando mais o cenário e mantendo o texto na mesma sessão */
+/* Sound Active State -> Revela a proporção completa 9:16 */
 .hero-media-card.sound-active .video-container-wrap {
-  aspect-ratio: 4 / 5;
-  max-height: 46vh;
-  min-height: 340px;
+  aspect-ratio: 9 / 16;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.98);
 }
 
@@ -184,8 +180,17 @@ body {
 }
 
 @keyframes timerPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
 }
 
 /* Live Badge */
@@ -214,8 +219,17 @@ body {
 }
 
 @keyframes liveDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(0.6); opacity: 0.5; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
 }
 
 .live-text {
@@ -257,7 +271,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 
+  box-shadow:
     0 0 0 8px rgba(var(--campaign-shadow-rgb), 0.18),
     0 0 28px rgba(var(--campaign-shadow-rgb), 0.35),
     0 14px 40px rgba(0, 0, 0, 0.6);
@@ -280,8 +294,15 @@ body {
 }
 
 @keyframes pulseRing {
-  0% { transform: scale(0.9); opacity: 0.9; }
-  100% { transform: scale(1.3); opacity: 0; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
 }
 
 .play-triangle {
@@ -382,7 +403,7 @@ body {
 .hero-content {
   position: relative;
   z-index: 15;
-  padding: 12px 4px 4px;
+  padding: 16px 4px 6px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -392,12 +413,12 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .tag-line {
   display: block;
-  width: 14px;
+  width: 16px;
   height: 2px;
   background: #FF2633;
   box-shadow: 0 0 10px rgba(255, 38, 51, 0.8);
@@ -405,21 +426,21 @@ body {
 }
 
 .tag-text {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 1.6px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   color: #FF3B47;
   text-shadow: 0 0 12px rgba(255, 38, 51, 0.5);
 }
 
 .hero-title {
-  font-size: clamp(22px, 6.6vw, 30px);
+  font-size: clamp(26px, 7.8vw, 34px);
   font-weight: 900;
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
 }
 
@@ -439,11 +460,11 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.78);
-  line-height: 1.35;
-  margin-bottom: 12px;
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 /* Luck Activation Pill */
@@ -451,7 +472,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   width: 100%;
 }
 
@@ -459,11 +480,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 18px;
+  padding: 10px 22px;
   border-radius: 9999px;
   background: rgba(36, 12, 14, 0.85);
   border: 1px solid rgba(255, 38, 51, 0.45);
-  box-shadow: 
+  box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     0 0 16px rgba(255, 38, 51, 0.25);
@@ -472,10 +493,13 @@ body {
 }
 
 @keyframes pillGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(255, 38, 51, 0.2);
     border-color: rgba(255, 38, 51, 0.45);
   }
+
   50% {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 38, 51, 0.5);
     border-color: rgba(255, 38, 51, 0.75);
@@ -483,7 +507,7 @@ body {
 }
 
 .luck-pill-text {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -495,8 +519,8 @@ body {
 .luck-meter-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 2px 2px 6px;
+  gap: 12px;
+  padding: 6px 4px 10px;
 }
 
 .luck-meter-header {
@@ -514,8 +538,17 @@ body {
 }
 
 @keyframes zapFlicker {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.12); opacity: 0.85; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
 }
 
 .luck-meter-label {
@@ -589,9 +622,17 @@ body {
 }
 
 @keyframes luckShimmer {
-  0% { left: -100%; }
-  50% { left: 150%; }
-  100% { left: 150%; }
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 150%;
+  }
+
+  100% {
+    left: 150%;
+  }
 }
 
 .luck-bar-footer {
@@ -811,16 +852,27 @@ body {
 }
 
 @keyframes ctaShine {
-  0% { left: -100%; }
-  35% { left: 150%; }
-  100% { left: 150%; }
+  0% {
+    left: -100%;
+  }
+
+  35% {
+    left: 150%;
+  }
+
+  100% {
+    left: 150%;
+  }
 }
 
 @keyframes ctaBreathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 4px 20px rgba(var(--campaign-shadow-rgb), 0.35);
   }
+
   50% {
     transform: scale(1.02);
     box-shadow: 0 8px 30px rgba(var(--campaign-shadow-rgb), 0.6);

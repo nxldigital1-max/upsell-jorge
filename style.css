@@ -466,196 +466,317 @@ body {
   margin-bottom: 16px;
 }
 
-/* Luck Activation Pill */
-.luck-pill-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 16px;
+/* ==========================================================================
+   CUSTOM HIGH-TECH / LUXURY LUCK BOOSTER CARD (HUD DESIGN)
+   ========================================================================== */
+
+.custom-luck-card {
+  position: relative;
   width: 100%;
-}
-
-.luck-pill-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  background: rgba(36, 12, 14, 0.85);
-  border: 1px solid rgba(255, 38, 51, 0.45);
+  margin: 10px 0 16px;
+  padding: 18px 18px 16px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(28, 10, 12, 0.95) 0%, rgba(14, 14, 18, 0.98) 60%, rgba(10, 10, 12, 1) 100%);
+  border: 1px solid rgba(255, 38, 51, 0.35);
   box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 0 16px rgba(255, 38, 51, 0.25);
-  backdrop-filter: blur(12px);
-  animation: pillGlow 3s ease-in-out infinite;
-}
-
-@keyframes pillGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(255, 38, 51, 0.2);
-    border-color: rgba(255, 38, 51, 0.45);
-  }
-
-  50% {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 38, 51, 0.5);
-    border-color: rgba(255, 38, 51, 0.75);
-  }
-}
-
-.luck-pill-text {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: #FF5A63;
-  text-shadow: 0 0 10px rgba(255, 38, 51, 0.5);
-}
-
-/* Luck Meter Card (Barra de Sorte) */
-.luck-meter-card {
+    0 14px 38px rgba(0, 0, 0, 0.75),
+    0 0 24px rgba(255, 38, 51, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 6px 4px 10px;
+  gap: 14px;
 }
 
-.luck-meter-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* Ambient dynamic back-glow behind card */
+.custom-luck-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 38, 51, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  animation: glowFloat 4s ease-in-out infinite alternate;
 }
 
-.luck-lightning-icon {
-  font-size: 15px;
-  color: #FF2633;
-  display: inline-flex;
-  filter: drop-shadow(0 0 10px rgba(255, 38, 51, 0.9));
-  animation: zapFlicker 2s ease-in-out infinite;
-}
-
-@keyframes zapFlicker {
-
-  0%,
+@keyframes glowFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
   100% {
-    transform: scale(1);
+    transform: translate(-20px, 20px) scale(1.2);
     opacity: 1;
   }
+}
 
+/* Top Pill Badge */
+.custom-luck-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.custom-luck-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 38, 51, 0.12);
+  border: 1px solid rgba(255, 38, 51, 0.5);
+  box-shadow: 0 0 14px rgba(255, 38, 51, 0.25);
+  animation: pillPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pillPulse {
+  0%, 100% {
+    border-color: rgba(255, 38, 51, 0.45);
+    box-shadow: 0 0 12px rgba(255, 38, 51, 0.2);
+  }
   50% {
-    transform: scale(1.12);
-    opacity: 0.85;
+    border-color: rgba(255, 38, 51, 0.85);
+    box-shadow: 0 0 20px rgba(255, 38, 51, 0.45);
   }
 }
 
-.luck-meter-label {
-  font-size: 14px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.01em;
+.custom-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #FF2633;
+  box-shadow: 0 0 8px #FF2633;
+  animation: beaconPulse 1.4s infinite ease-in-out;
 }
 
-.luck-meter-main {
+@keyframes beaconPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.65); opacity: 0.4; }
+}
+
+.custom-badge-text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FF5A63;
+  text-shadow: 0 0 10px rgba(255, 38, 51, 0.6);
+}
+
+/* Card Body (Radial Gauge + Typography Info) */
+.custom-luck-body {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.luck-meter-percent {
-  font-size: clamp(48px, 12vw, 56px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #FF2633;
-  text-shadow: 0 0 24px rgba(255, 38, 51, 0.55), 0 2px 10px rgba(0, 0, 0, 0.9);
-  font-variant-numeric: tabular-nums;
+/* Circular SVG Gauge */
+.custom-gauge-wrap {
+  position: relative;
+  width: 92px;
+  height: 92px;
   flex-shrink: 0;
 }
 
-.luck-meter-message {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.38;
-  color: rgba(255, 255, 255, 0.85);
+.custom-gauge-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
 }
 
-/* Progress Bar */
-.luck-bar-wrapper {
+.gauge-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 8;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: url(#gaugeGradient);
+  stroke: #FF2633;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 264;
+  stroke-dashoffset: 264;
+  filter: drop-shadow(0 0 8px rgba(255, 38, 51, 0.7));
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.custom-gauge-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.custom-gauge-val {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 16px rgba(255, 38, 51, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+  font-variant-numeric: tabular-nums;
+}
+
+.custom-gauge-sub {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FF5A63;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+/* Typography Info column */
+.custom-luck-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.custom-luck-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.custom-luck-icon {
+  font-size: 15px;
+  color: #FF2633;
+  filter: drop-shadow(0 0 8px rgba(255, 38, 51, 0.9));
+  animation: zapFlicker 2s ease-in-out infinite;
+}
+
+.custom-luck-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.custom-luck-tag {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 38, 51, 0.25);
+  border: 1px solid rgba(255, 38, 51, 0.5);
+  color: #FF6670;
+}
+
+.custom-luck-desc {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Comparative Telemetry Visualizer */
+.custom-telemetry-box {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 4px;
+  padding-top: 4px;
 }
 
-.luck-bar-track {
+.telemetry-track-wrap {
+  width: 100%;
+}
+
+.telemetry-bar-bg {
   position: relative;
   width: 100%;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
   overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.luck-bar-fill {
+.telemetry-bar-fill {
   position: relative;
   height: 100%;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #A80007 0%, #FF1E27 60%, #FF6068 90%, #FFFFFF 100%);
-  box-shadow: 0 0 20px rgba(255, 30, 39, 0.65), 0 0 6px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(90deg, #A80007 0%, #FF1E27 50%, #FF525B 85%, #FFFFFF 100%);
+  box-shadow: 0 0 16px rgba(255, 38, 51, 0.7), 0 0 4px #FFFFFF;
   transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
 }
 
-.luck-bar-shimmer {
+.telemetry-shimmer {
   position: absolute;
   top: 0;
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
-  animation: luckShimmer 2.5s infinite ease-in-out;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: luckShimmer 2.4s infinite ease-in-out;
 }
 
-@keyframes luckShimmer {
-  0% {
-    left: -100%;
-  }
-
-  50% {
-    left: 150%;
-  }
-
-  100% {
-    left: 150%;
-  }
+.telemetry-head-glow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: #FFFFFF;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px #FFFFFF, 0 0 18px #FF2633;
 }
 
-.luck-bar-footer {
+.telemetry-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2px;
 }
 
-.luck-flux-normal {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+.telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.luck-flux-boost {
-  font-size: 10.5px;
+.telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+}
+
+.normal-dot {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.boost-dot {
+  background: #FF2633;
+  box-shadow: 0 0 8px rgba(255, 38, 51, 0.9);
+}
+
+.telemetry-item.normal .telemetry-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.telemetry-item.boost .telemetry-name {
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FF3B47;
-  text-shadow: 0 0 12px rgba(255, 38, 51, 0.5);
+  text-shadow: 0 0 10px rgba(255, 38, 51, 0.5);
 }
 
 /* ==========================================================================

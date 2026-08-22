@@ -18,7 +18,7 @@
   <!-- Lucide Icons (CDN) -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="style.css?v=4.7" />
+  <link rel="stylesheet" href="style.css?v=5.0" />
 </head>
 
 <body>
@@ -100,36 +100,67 @@
             Agora ficou muito mais fácil encontrar uma cota premiada por aqui!
           </p>
 
-          <!-- Luck Activation Pill -->
-          <div class="luck-pill-container">
-            <div class="luck-pill-badge">
-              <span class="luck-pill-text">VOCÊ ATIVOU MAIS SORTE!!</span>
-            </div>
-          </div>
+          <!-- Custom Futuristic Luck Booster Card -->
+          <div class="custom-luck-card">
+            <!-- Ambient Glow Effect behind card -->
+            <div class="custom-luck-glow"></div>
 
-          <!-- Luck Meter Box (Barra de Sorte) -->
-          <div class="luck-meter-card">
-            <div class="luck-meter-header">
-              <span class="luck-lightning-icon">⚡</span>
-              <span class="luck-meter-label">Nível de sorte</span>
-            </div>
-
-            <div class="luck-meter-main">
-              <div class="luck-meter-percent" id="luckPercentVal">86%</div>
-              <div class="luck-meter-message">
-                Você está muito mais perto de encontrar uma premiada.
+            <!-- Top Header Badge -->
+            <div class="custom-luck-top">
+              <div class="custom-luck-badge">
+                <span class="custom-badge-dot"></span>
+                <span class="custom-badge-text">VOCÊ ATIVOU MAIS SORTE!!</span>
               </div>
             </div>
 
-            <div class="luck-bar-wrapper">
-              <div class="luck-bar-track">
-                <div class="luck-bar-fill" id="luckBarFill" style="width: 86%;">
-                  <div class="luck-bar-shimmer"></div>
+            <!-- Card Body: Radial Arc + Info Details -->
+            <div class="custom-luck-body">
+              <!-- Circular Turbo Radial Gauge -->
+              <div class="custom-gauge-wrap">
+                <svg class="custom-gauge-svg" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="gauge-bg" cx="50" cy="50" r="42" />
+                  <circle class="gauge-fill" id="luckCircleProgress" cx="50" cy="50" r="42" />
+                </svg>
+                <div class="custom-gauge-center">
+                  <span class="custom-gauge-val" id="luckPercentVal">90%</span>
+                  <span class="custom-gauge-sub">CHANCE</span>
                 </div>
               </div>
-              <div class="luck-bar-footer">
-                <span class="luck-flux-normal">FLUXO NORMAL</span>
-                <span class="luck-flux-boost">ESTA PÁGINA · MUITO MAIOR</span>
+
+              <!-- Content details -->
+              <div class="custom-luck-info">
+                <div class="custom-luck-title-row">
+                  <span class="custom-luck-icon">⚡</span>
+                  <span class="custom-luck-title">Nível de sorte</span>
+                  <span class="custom-luck-tag">TURBO</span>
+                </div>
+                <p class="custom-luck-desc">
+                  Você está muito mais perto de encontrar uma premiada.
+                </p>
+              </div>
+            </div>
+
+            <!-- Comparative Telemetry Visualizer -->
+            <div class="custom-telemetry-box">
+              <div class="telemetry-track-wrap">
+                <div class="telemetry-bar-bg">
+                  <div class="telemetry-bar-fill" id="luckBarFill" style="width: 90%;">
+                    <div class="telemetry-shimmer"></div>
+                    <div class="telemetry-head-glow"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comparison Comparison Labels -->
+              <div class="telemetry-footer">
+                <div class="telemetry-item normal">
+                  <span class="telemetry-dot normal-dot"></span>
+                  <span class="telemetry-name">FLUXO NORMAL</span>
+                </div>
+                <div class="telemetry-item boost">
+                  <span class="telemetry-dot boost-dot"></span>
+                  <span class="telemetry-name">ESTA PÁGINA · MUITO MAIOR</span>
+                </div>
               </div>
             </div>
           </div>

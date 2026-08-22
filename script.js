@@ -124,37 +124,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Luck Meter Animation (0 to 86%)
+  // Luck Meter Animation (0 to 90%)
   const luckPercentVal = document.getElementById('luckPercentVal');
   const luckBarFill = document.getElementById('luckBarFill');
+  const luckCircleProgress = document.getElementById('luckCircleProgress');
 
-  if (luckPercentVal && luckBarFill) {
-    luckBarFill.style.width = '0%';
-    let currentPercent = 0;
-    const targetPercent = 86;
-    const duration = 1400; // 1.4s
+  if (luckPercentVal) {
+    const targetPercent = 90;
+    const duration = 1500; // 1.5s
     const startTime = performance.now();
+    const circumference = 2 * Math.PI * 42; // ~263.89
+
+    if (luckCircleProgress) {
+      luckCircleProgress.style.strokeDasharray = `${circumference}`;
+      luckCircleProgress.style.strokeDashoffset = `${circumference}`;
+    }
+
+    if (luckBarFill) {
+      luckBarFill.style.width = '0%';
+    }
 
     const animateMeter = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       // Ease out cubic
       const easeProgress = 1 - Math.pow(1 - progress, 3);
-      currentPercent = Math.round(easeProgress * targetPercent);
+      const currentVal = Math.round(easeProgress * targetPercent);
       
-      luckPercentVal.textContent = `${currentPercent}%`;
-      luckBarFill.style.width = `${easeProgress * targetPercent}%`;
+      luckPercentVal.textContent = `${currentVal}%`;
+
+      if (luckBarFill) {
+        luckBarFill.style.width = `${easeProgress * targetPercent}%`;
+      }
+
+      if (luckCircleProgress) {
+        const offset = circumference - (circumference * (easeProgress * targetPercent / 100));
+        luckCircleProgress.style.strokeDashoffset = offset;
+      }
 
       if (progress < 1) {
         requestAnimationFrame(animateMeter);
       } else {
         luckPercentVal.textContent = `${targetPercent}%`;
-        luckBarFill.style.width = `${targetPercent}%`;
+        if (luckBarFill) luckBarFill.style.width = `${targetPercent}%`;
+        if (luckCircleProgress) {
+          luckCircleProgress.style.strokeDashoffset = circumference - (circumference * (targetPercent / 100));
+        }
       }
     };
 
     setTimeout(() => {
       requestAnimationFrame(animateMeter);
-    }, 300);
+    }, 250);
   }
 });

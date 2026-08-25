@@ -417,8 +417,8 @@ body {
   display: block;
   width: 16px;
   height: 2px;
-  background: #00FF88;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+  background: #FF2633;
+  box-shadow: 0 0 10px rgba(255, 38, 51, 0.8);
   border-radius: 1px;
 }
 
@@ -427,8 +427,8 @@ body {
   font-weight: 800;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  color: #00FF88;
-  text-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+  color: #FF3B47;
+  text-shadow: 0 0 12px rgba(255, 38, 51, 0.5);
 }
 
 .hero-title {
@@ -448,12 +448,12 @@ body {
 
 .luck-red-text {
   display: block;
-  background: linear-gradient(135deg, #A7F3D0 0%, #00FF88 50%, #059669 100%);
+  background: linear-gradient(135deg, #FF6B72 0%, #FF2633 50%, #D90414 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #00FF88;
+  color: #FF2633;
   font-weight: 900;
-  text-shadow: 0 2px 24px rgba(0, 255, 136, 0.45);
+  text-shadow: 0 2px 24px rgba(255, 38, 51, 0.45);
 }
 
 .hero-subtitle {
@@ -466,7 +466,7 @@ body {
 
 .text-highlight {
   font-weight: 800;
-  color: #FF2633;
+  color: #00FF88;
   letter-spacing: 0.2px;
 }
 
@@ -480,11 +480,11 @@ body {
   margin: 10px 0 16px;
   padding: 18px 18px 16px;
   border-radius: 24px;
-  background: linear-gradient(160deg, rgba(8, 24, 16, 0.95) 0%, rgba(10, 18, 14, 0.98) 60%, rgba(10, 12, 10, 1) 100%);
-  border: 1px solid rgba(0, 255, 136, 0.35);
+  background: linear-gradient(160deg, rgba(28, 10, 12, 0.95) 0%, rgba(14, 14, 18, 0.98) 60%, rgba(10, 10, 12, 1) 100%);
+  border: 1px solid rgba(255, 38, 51, 0.35);
   box-shadow:
     0 14px 38px rgba(0, 0, 0, 0.75),
-    0 0 24px rgba(0, 255, 136, 0.18),
+    0 0 24px rgba(255, 38, 51, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     inset 0 -1px 0 rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(16px);
@@ -502,7 +502,7 @@ body {
   width: 160px;
   height: 160px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(0, 255, 136, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 38, 51, 0.25) 0%, transparent 70%);
   pointer-events: none;
   animation: glowFloat 4s ease-in-out infinite alternate;
 }
@@ -532,9 +532,9 @@ body {
   gap: 8px;
   padding: 6px 14px;
   border-radius: 9999px;
-  background: rgba(0, 255, 136, 0.12);
-  border: 1px solid rgba(0, 255, 136, 0.5);
-  box-shadow: 0 0 14px rgba(0, 255, 136, 0.25);
+  background: rgba(255, 38, 51, 0.12);
+  border: 1px solid rgba(255, 38, 51, 0.5);
+  box-shadow: 0 0 14px rgba(255, 38, 51, 0.25);
   animation: pillPulse 2.5s ease-in-out infinite;
 }
 
@@ -542,13 +542,13 @@ body {
 
   0%,
   100% {
-    border-color: rgba(0, 255, 136, 0.45);
-    box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
+    border-color: rgba(255, 38, 51, 0.45);
+    box-shadow: 0 0 12px rgba(255, 38, 51, 0.2);
   }
 
   50% {
-    border-color: rgba(0, 255, 136, 0.85);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.45);
+    border-color: rgba(255, 38, 51, 0.85);
+    box-shadow: 0 0 20px rgba(255, 38, 51, 0.45);
   }
 }
 
@@ -556,8 +556,8 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 9999px;
-  background: #00FF88;
-  box-shadow: 0 0 8px #00FF88;
+  background: #FF2633;
+  box-shadow: 0 0 8px #FF2633;
   animation: beaconPulse 1.4s infinite ease-in-out;
 }
 
@@ -580,8 +580,8 @@ body {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #00FF88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+  color: #FF5A63;
+  text-shadow: 0 0 10px rgba(255, 38, 51, 0.6);
 }
 
 /* Card Body (Radial Gauge + Typography Info) */
@@ -613,12 +613,13 @@ body {
 
 .gauge-fill {
   fill: none;
-  stroke: #00FF88;
+  stroke: url(#gaugeGradient);
+  stroke: #FF2633;
   stroke-width: 8;
   stroke-linecap: round;
   stroke-dasharray: 264;
   stroke-dashoffset: 264;
-  filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.7));
+  filter: drop-shadow(0 0 8px rgba(255, 38, 51, 0.7));
   transition: stroke-dashoffset 0.1s linear;
 }
 
@@ -638,7 +639,7 @@ body {
   line-height: 1;
   color: #FFFFFF;
   letter-spacing: -0.04em;
-  text-shadow: 0 0 16px rgba(0, 255, 136, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 0 16px rgba(255, 38, 51, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
   font-variant-numeric: tabular-nums;
 }
 
@@ -646,7 +647,7 @@ body {
   font-size: 8.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #00FF88;
+  color: #FF5A63;
   margin-top: 2px;
   text-transform: uppercase;
 }
@@ -667,8 +668,8 @@ body {
 
 .custom-luck-icon {
   font-size: 15px;
-  color: #00FF88;
-  filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.9));
+  color: #FF2633;
+  filter: drop-shadow(0 0 8px rgba(255, 38, 51, 0.9));
   animation: zapFlicker 2s ease-in-out infinite;
 }
 
@@ -685,9 +686,9 @@ body {
   letter-spacing: 0.08em;
   padding: 2px 6px;
   border-radius: 4px;
-  background: rgba(0, 255, 136, 0.2);
-  border: 1px solid rgba(0, 255, 136, 0.5);
-  color: #00FF88;
+  background: rgba(255, 38, 51, 0.25);
+  border: 1px solid rgba(255, 38, 51, 0.5);
+  color: #FF6670;
 }
 
 .custom-luck-desc {
@@ -724,8 +725,8 @@ body {
   position: relative;
   height: 100%;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #047857 0%, #00FF88 50%, #A7F3D0 85%, #FFFFFF 100%);
-  box-shadow: 0 0 16px rgba(0, 255, 136, 0.7), 0 0 4px #FFFFFF;
+  background: linear-gradient(90deg, #A80007 0%, #FF1E27 50%, #FF525B 85%, #FFFFFF 100%);
+  box-shadow: 0 0 16px rgba(255, 38, 51, 0.7), 0 0 4px #FFFFFF;
   transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -747,7 +748,7 @@ body {
   width: 8px;
   background: #FFFFFF;
   border-radius: 9999px;
-  box-shadow: 0 0 10px #FFFFFF, 0 0 18px #00FF88;
+  box-shadow: 0 0 10px #FFFFFF, 0 0 18px #FF2633;
 }
 
 .telemetry-footer {
@@ -774,8 +775,8 @@ body {
 }
 
 .boost-dot {
-  background: #00FF88;
-  box-shadow: 0 0 8px rgba(0, 255, 136, 0.9);
+  background: #FF2633;
+  box-shadow: 0 0 8px rgba(255, 38, 51, 0.9);
 }
 
 .telemetry-item.normal .telemetry-name {
@@ -791,8 +792,8 @@ body {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #00FF88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  color: #FF3B47;
+  text-shadow: 0 0 10px rgba(255, 38, 51, 0.5);
 }
 
 /* ==========================================================================

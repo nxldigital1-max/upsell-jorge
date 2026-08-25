@@ -467,10 +467,6 @@ body {
 .text-highlight {
   font-weight: 800;
   color: #00FF88;
-  background: linear-gradient(135deg, #E6FFFA 0%, #00FF88 45%, #00D06C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 10px rgba(0, 255, 136, 0.45));
   letter-spacing: 0.2px;
 }
 

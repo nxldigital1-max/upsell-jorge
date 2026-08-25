@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
       currentSlide = (currentSlide + 1) % cotaSlides.length;
       showSlide(currentSlide);
-    }, 2800);
+    }, 1500);
 
     // Click indicator dots to jump to slide
     cotaDots.forEach((dot, idx) => {

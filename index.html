@@ -18,7 +18,7 @@
   <!-- Lucide Icons (CDN) -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="style.css?v=8.2" />
+  <link rel="stylesheet" href="style.css?v=9.0" />
 </head>
 
 <body>
@@ -173,17 +173,36 @@
           </div>
         </a>
 
-        <!-- Cota Premiada Card -->
+        <!-- Cotas Premiadas Auto Carousel Card -->
         <a href="https://jorgefilhomultimarcas.com/campanha/casa-mobiliada-ou-250mil?&afiliado=3Q5G865EPJ"
-          target="_blank" rel="noopener noreferrer" class="prize-card"
-          aria-label="COTA PREMIADA - SAVEIRO DEBOXE">
-          <div class="prize-image-wrap">
+          target="_blank" rel="noopener noreferrer" class="prize-card cota-carousel-card"
+          aria-label="COTAS PREMIADAS INSTANTÂNEAS">
+          <div class="prize-image-wrap cota-slider-wrap" id="cotaSliderWrap">
             <span class="prize-badge">COTA PREMIADA</span>
-            <img src="assets/cota-premiada-saveiro.jpg" alt="COTA PREMIADA - SAVEIRO DEBOXE" class="prize-img" loading="lazy" />
+            
+            <div class="cota-slides">
+              <div class="cota-slide active">
+                <img src="assets/cota-premiada-saveiro.jpg" alt="Saveiro Deboxe Vermelha" class="prize-img" loading="lazy" />
+              </div>
+              <div class="cota-slide">
+                <img src="assets/cota-premiada-moto.jpg" alt="Honda Start 160" class="prize-img" loading="lazy" />
+              </div>
+              <div class="cota-slide">
+                <img src="assets/cota-premiada-saveiro-surf.jpg" alt="Saveiro Surf Deboxe" class="prize-img" loading="lazy" />
+              </div>
+            </div>
+
+            <!-- Slide Progress Indicators / Dots -->
+            <div class="cota-indicators">
+              <span class="cota-dot active" data-index="0"></span>
+              <span class="cota-dot" data-index="1"></span>
+              <span class="cota-dot" data-index="2"></span>
+            </div>
           </div>
+
           <div class="prize-card-info">
-            <h2 class="prize-title">SAVEIRO DEBOXE</h2>
-            <p class="prize-subtitle">Cota premiada instantânea!</p>
+            <h2 class="prize-title" id="cotaDynamicTitle">SAVEIRO DEBOXE</h2>
+            <p class="prize-subtitle" id="cotaDynamicSubtitle">Cota premiada instantânea!</p>
           </div>
         </a>
 

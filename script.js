@@ -177,4 +177,48 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateMeter);
     }, 250);
   }
+
+  // Cotas Premiadas Auto Carousel
+  const cotaSlides = document.querySelectorAll('.cota-slide');
+  const cotaDots = document.querySelectorAll('.cota-dot');
+  const cotaTitle = document.getElementById('cotaDynamicTitle');
+  const cotaSubtitle = document.getElementById('cotaDynamicSubtitle');
+
+  const cotaInfo = [
+    { title: 'SAVEIRO DEBOXE', subtitle: 'Cota premiada instantânea!' },
+    { title: 'HONDA START 160', subtitle: 'Cota premiada instantânea!' },
+    { title: 'SAVEIRO SURF DEBOXE', subtitle: 'Cota premiada instantânea!' }
+  ];
+
+  if (cotaSlides.length > 1) {
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+      cotaSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      cotaDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      if (cotaTitle && cotaSubtitle && cotaInfo[index]) {
+        cotaTitle.textContent = cotaInfo[index].title;
+        cotaSubtitle.textContent = cotaInfo[index].subtitle;
+      }
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % cotaSlides.length;
+      showSlide(currentSlide);
+    }, 2800);
+
+    // Click indicator dots to jump to slide
+    cotaDots.forEach((dot, idx) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentSlide = idx;
+        showSlide(currentSlide);
+      });
+    });
+  }
 });

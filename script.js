@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cotaInfo = [
     { title: 'SAVEIRO DEBOXE', subtitle: 'Cota premiada instantânea!' },
     { title: 'HONDA START 160', subtitle: 'Cota premiada instantânea!' },
-    { title: 'SAVEIRO SURF DEBOXE', subtitle: 'Cota premiada instantânea!' }
+    { title: 'SAVEIRO ABELVOLKS', subtitle: 'Cota premiada instantânea!' }
   ];
 
   if (cotaSlides.length > 1) {

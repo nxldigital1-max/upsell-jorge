@@ -466,6 +466,16 @@ body {
   margin-bottom: 16px;
 }
 
+.text-highlight {
+  font-weight: 800;
+  color: #FFE600;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFE600 45%, #FFAA00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(255, 214, 0, 0.45));
+  letter-spacing: 0.2px;
+}
+
 /* ==========================================================================
    CUSTOM HIGH-TECH / LUXURY LUCK BOOSTER CARD (HUD DESIGN)
    ========================================================================== */

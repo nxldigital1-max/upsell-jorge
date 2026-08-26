@@ -221,4 +221,50 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Live Countdown to 22:00 Brasília Time (UTC-3)
+  const resHours = document.getElementById('resHours');
+  const resMinutes = document.getElementById('resMinutes');
+  const resSeconds = document.getElementById('resSeconds');
+  const resultCountdownBox = document.getElementById('resultCountdown');
+
+  if (resHours && resMinutes && resSeconds) {
+    function updateBrasiliaCountdown() {
+      const now = new Date();
+      // UTC milliseconds
+      const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
+      // Brasília is UTC-3 all year round (-3 hours)
+      const brtMs = utcMs - (3 * 60 * 60 * 1000);
+      const brtDate = new Date(brtMs);
+
+      // Target: today at 22:00:00 Brasília time
+      const targetBrt = new Date(brtDate);
+      targetBrt.setHours(22, 0, 0, 0);
+
+      let diffMs = targetBrt.getTime() - brtDate.getTime();
+
+      if (diffMs <= 0) {
+        resHours.textContent = '00';
+        resMinutes.textContent = '00';
+        resSeconds.textContent = '00';
+        if (resultCountdownBox) {
+          resultCountdownBox.classList.add('ended');
+        }
+        return;
+      }
+
+      const totalSec = Math.floor(diffMs / 1000);
+      const hours = Math.floor(totalSec / 3600);
+      const minutes = Math.floor((totalSec % 3600) / 60);
+      const seconds = totalSec % 60;
+
+      resHours.textContent = String(hours).padStart(2, '0');
+      resMinutes.textContent = String(minutes).padStart(2, '0');
+      resSeconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateBrasiliaCountdown();
+    setInterval(updateBrasiliaCountdown, 1000);
+  }
 });
+

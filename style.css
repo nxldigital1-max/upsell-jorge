@@ -922,28 +922,6 @@ body {
   }
 }
 
-.result-urgency-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.78);
-  text-align: center;
-  line-height: 1.35;
-  padding: 0 4px;
-}
-
-.result-urgency-note .urgency-icon {
-  font-size: 12px;
-  flex-shrink: 0;
-}
-
-.result-urgency-note strong {
-  color: #FF4D57;
-  font-weight: 800;
-}
-
 /* ==========================================================================
    PRIZE FEATURE CARD & URGENCY BANNER
    ========================================================================== */

@@ -18,7 +18,7 @@
   <!-- Lucide Icons (CDN) -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="style.css?v=9.1" />
+  <link rel="stylesheet" href="style.css?v=9.2" />
 </head>
 
 <body>
@@ -160,12 +160,35 @@
 
       <!-- Prize Feature Section -->
       <section class="prize-section">
+        <!-- Casa Mobiliada Auto Carousel Card -->
         <a href="https://jorgefilhomultimarcas.com/campanha/casa-mobiliada-ou-250mil?&afiliado=3Q5G865EPJ"
-          target="_blank" rel="noopener noreferrer" class="prize-card"
+          target="_blank" rel="noopener noreferrer" class="prize-card casa-carousel-card"
           aria-label="CASA MOBILIADA OU R$250K - Aproveitar Oferta">
-          <div class="prize-image-wrap">
+          <div class="prize-image-wrap casa-slider-wrap" id="casaSliderWrap">
             <span class="prize-badge">PRÊMIO PRINCIPAL</span>
-            <img src="assets/casa.jpg" alt="CASA MOBILIADA OU R$250K" class="prize-img" loading="lazy" />
+            
+            <div class="casa-slides">
+              <div class="casa-slide active">
+                <img src="assets/casa.jpg" alt="Fachada da Casa Mobiliada" class="prize-img" loading="lazy" />
+              </div>
+              <div class="casa-slide">
+                <img src="assets/casa-sala.jpg" alt="Sala de Estar Mobiliada" class="prize-img" loading="lazy" />
+              </div>
+              <div class="casa-slide">
+                <img src="assets/casa-piscina.jpg" alt="Área Gourmet e Piscina" class="prize-img" loading="lazy" />
+              </div>
+              <div class="casa-slide">
+                <img src="assets/casa-quarto.jpg" alt="Quarto Mobiliado" class="prize-img" loading="lazy" />
+              </div>
+            </div>
+
+            <!-- Slide Progress Indicators / Dots -->
+            <div class="casa-indicators">
+              <span class="casa-dot active" data-index="0"></span>
+              <span class="casa-dot" data-index="1"></span>
+              <span class="casa-dot" data-index="2"></span>
+              <span class="casa-dot" data-index="3"></span>
+            </div>
           </div>
           <div class="prize-card-info">
             <h2 class="prize-title">CASA MOBILIADA OU R$250K</h2>
@@ -230,7 +253,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=2.1"></script>
+  <script src="script.js?v=2.2"></script>
 </body>
 
 </html>

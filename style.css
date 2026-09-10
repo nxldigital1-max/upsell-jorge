@@ -860,19 +860,22 @@ body {
   display: block;
 }
 
-/* Cotas Premiadas Carousel */
-.cota-slider-wrap {
+/* Cotas & Casa Carousels */
+.cota-slider-wrap,
+.casa-slider-wrap {
   position: relative;
   overflow: hidden;
 }
 
-.cota-slides {
+.cota-slides,
+.casa-slides {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.cota-slide {
+.cota-slide,
+.casa-slide {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -883,14 +886,16 @@ body {
   transform: scale(1.03);
 }
 
-.cota-slide.active {
+.cota-slide.active,
+.casa-slide.active {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
   z-index: 2;
 }
 
-.cota-indicators {
+.cota-indicators,
+.casa-indicators {
   position: absolute;
   bottom: 12px;
   right: 14px;
@@ -905,15 +910,18 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.cota-dot {
+.cota-dot,
+.casa-dot {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.35);
   transition: all 0.35s ease;
+  cursor: pointer;
 }
 
-.cota-dot.active {
+.cota-dot.active,
+.casa-dot.active {
   width: 18px;
   background: #FF2633;
   box-shadow: 0 0 10px rgba(255, 38, 51, 0.9);

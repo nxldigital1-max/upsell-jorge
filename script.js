@@ -221,4 +221,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Casa Mobiliada Auto Carousel
+  const casaSlides = document.querySelectorAll('.casa-slide');
+  const casaDots = document.querySelectorAll('.casa-dot');
+
+  if (casaSlides.length > 1) {
+    let currentCasaSlide = 0;
+
+    function showCasaSlide(index) {
+      casaSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      casaDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    setInterval(() => {
+      currentCasaSlide = (currentCasaSlide + 1) % casaSlides.length;
+      showCasaSlide(currentCasaSlide);
+    }, 2000);
+
+    // Click indicator dots to jump to slide
+    casaDots.forEach((dot, idx) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentCasaSlide = idx;
+        showCasaSlide(currentCasaSlide);
+      });
+    });
+  }
 });

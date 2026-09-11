@@ -4,29 +4,52 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Countdown Timer Logic (5 Minutes)
-  const timerElement = document.getElementById('countdownTimer');
-  let durationInSeconds = 5 * 60;
+  // Result Countdown Logic (Hoje às 22:00 - Horário de Brasília UTC-3)
+  const hoursEl = document.getElementById('countdownHours');
+  const minutesEl = document.getElementById('countdownMinutes');
+  const secondsEl = document.getElementById('countdownSeconds');
+  const topTimerEl = document.getElementById('countdownTimer');
 
-  function updateTimer() {
-    const minutes = Math.floor(durationInSeconds / 60);
-    const seconds = durationInSeconds % 60;
-    
-    const formattedMinutes = String(minutes).padStart(2, '0');
-    const formattedSeconds = String(seconds).padStart(2, '0');
-    
-    if (timerElement) {
-      timerElement.textContent = `${formattedMinutes}:${formattedSeconds}`;
+  function updateBrasiliaCountdown() {
+    const now = new Date();
+    // Convert to UTC ms then apply Brasília offset (UTC-3)
+    const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const brasiliaOffsetMs = -3 * 60 * 60 * 1000;
+    const brasiliaNow = new Date(utcMs + brasiliaOffsetMs);
+
+    // Target: Hoje às 22:00:00 horário de Brasília
+    const targetBrasilia = new Date(brasiliaNow);
+    targetBrasilia.setHours(22, 0, 0, 0);
+
+    let diffMs = targetBrasilia.getTime() - brasiliaNow.getTime();
+
+    if (diffMs <= 0) {
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minutesEl) minutesEl.textContent = '00';
+      if (secondsEl) secondsEl.textContent = '00';
+      if (topTimerEl) topTimerEl.textContent = '00:00:00';
+      return;
     }
 
-    if (durationInSeconds > 0) {
-      durationInSeconds--;
-    } else {
-      clearInterval(timerInterval);
+    const totalSeconds = Math.floor(diffMs / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const formattedHours = String(hours).padStart(2, '0');
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+
+    if (hoursEl) hoursEl.textContent = formattedHours;
+    if (minutesEl) minutesEl.textContent = formattedMinutes;
+    if (secondsEl) secondsEl.textContent = formattedSeconds;
+    if (topTimerEl) {
+      topTimerEl.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
     }
   }
 
-  const timerInterval = setInterval(updateTimer, 1000);
+  updateBrasiliaCountdown();
+  const timerInterval = setInterval(updateBrasiliaCountdown, 1000);
 
   // Video Sound & Play/Pause Control
   const video = document.getElementById('heroVideo');

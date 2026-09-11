@@ -796,6 +796,120 @@ body {
   text-shadow: 0 0 10px rgba(255, 38, 51, 0.5);
 }
 
+/* --------------------------------------------------------------------------
+   RESULT COUNTDOWN BLOCK (22:00 BRASÍLIA)
+   -------------------------------------------------------------------------- */
+
+.result-countdown-block {
+  margin-top: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 38, 51, 0.12) 0%, rgba(20, 10, 14, 0.75) 100%);
+  border: 1px solid rgba(255, 38, 51, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.55),
+    0 0 14px rgba(255, 38, 51, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.countdown-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.countdown-pulse-icon {
+  font-size: 13px;
+  filter: drop-shadow(0 0 6px rgba(255, 38, 51, 0.8));
+}
+
+.countdown-title-text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(255, 38, 51, 0.5);
+  text-transform: uppercase;
+  flex: 1;
+  margin-left: 4px;
+}
+
+.countdown-tz-pill {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #FF7079;
+  background: rgba(255, 38, 51, 0.18);
+  border: 1px solid rgba(255, 38, 51, 0.4);
+  padding: 2px 7px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.countdown-digits-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.countdown-box {
+  flex: 1;
+  max-width: 84px;
+  min-width: 58px;
+  padding: 7px 4px 5px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 38, 51, 0.4);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.8),
+    0 0 12px rgba(255, 38, 51, 0.18);
+}
+
+.countdown-value {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 12px rgba(255, 38, 51, 0.9), 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.countdown-sublabel {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FF5A63;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.countdown-separator {
+  font-size: 20px;
+  font-weight: 900;
+  color: #FF2633;
+  text-shadow: 0 0 8px rgba(255, 38, 51, 0.8);
+  animation: colonBlink 1s infinite steps(1, start);
+}
+
+@keyframes colonBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 /* ==========================================================================
    PRIZE FEATURE CARD & URGENCY BANNER
    ========================================================================== */

@@ -39,6 +39,34 @@ document.addEventListener('DOMContentLoaded', () => {
   let hasActivatedSound = false;
   let overlayTimeout;
 
+  // Ensure muted autoplay starts immediately on load
+  if (video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    const startMutedAutoplay = () => {
+      const p = video.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          const tryPlayOnce = () => {
+            if (!hasActivatedSound) {
+              video.muted = true;
+              video.play().catch(() => {});
+            }
+          };
+          window.addEventListener('touchstart', tryPlayOnce, { once: true, passive: true });
+          window.addEventListener('click', tryPlayOnce, { once: true });
+        });
+      }
+    };
+
+    if (video.readyState >= 2) {
+      startMutedAutoplay();
+    } else {
+      video.addEventListener('loadeddata', startMutedAutoplay, { once: true });
+      video.addEventListener('canplay', startMutedAutoplay, { once: true });
+    }
+  }
+
   function showStateIndicator(isPlaying) {
     if (!videoStateOverlay || !videoStateIcon) return;
     clearTimeout(overlayTimeout);
